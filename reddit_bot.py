@@ -20,7 +20,7 @@ def run_bot(r, comments_replied_to):
 		keyWords = comment.body
 		keyWords = keyWords.upper()
 		f = open('comments_replied_to.txt')
-		if ((compareWith in keyWords) and (comment.id not in comments_replied_to)):			
+		if ((compareWith in keyWords) and (comment.id not in comments_replied_to) and (comment.author != r.user.me())):			
 			print (f'String with "{compareWith}" found in comment {comment.id}')
 			comment.reply('Reply text')
 			print (f'Replied to comment {comment.id}')
